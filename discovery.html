@@ -25,7 +25,7 @@ let step=0;const steps=[...document.querySelectorAll('.step')];function render()
 document.getElementById('next').addEventListener('click',()=>{if(step<8){step++;render()}});document.getElementById('back').addEventListener('click',()=>{if(step>0){step--;render()}});document.getElementById('review').addEventListener('click',()=>{step=7;render()});document.getElementById('authentic').addEventListener('input',e=>document.getElementById('authValue').textContent=e.target.value+' / 10');document.getElementById('download').addEventListener('click',()=>{const blob=new Blob([summary()],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='my-lily-pad-discovery.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});document.getElementById('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(summary());document.getElementById('copy').textContent='Copied!'}catch(e){document.getElementById('copy').textContent='Please use Download'}});render();
 
 // Configuration: replace the placeholder below only after the secure Worker is deployed.
-const COMPANION_API = 'PASTE_YOUR_WORKER_URL_HERE';
+const COMPANION_API = 'https://lily-pad-companionrough-glitter-d289.jack-8db.workers.dev';
 const conversation = [];
 const conversationEl = document.getElementById('conversation');
 const statusEl = document.getElementById('companionStatus');
